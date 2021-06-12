@@ -118,4 +118,45 @@ public class LinkedList<T> {
 		}
 		return index;
 	}
+
+	/**
+	 * Removes the element at the specified position in this list
+	 * 
+	 * @param index
+	 */
+	public void popAtIndex(int index) {
+		if (index == 0) {
+			pop();
+		} else {
+			Node<T> prevNode = head;
+			Node<T> currNode = head;
+			for (int i = 0; i < index; i++) {
+				prevNode = currNode;
+				currNode = currNode.next;
+			}
+			prevNode.next = currNode.next;
+		}
+	}
+
+	/**
+	 * Returns the number of elements in this list. If this list contains more than
+	 * {@code Integer.MAX_VALUE} elements, returns {@code Integer.MAX_VALUE}.
+	 * 
+	 * @return
+	 */
+	public int size() {
+		Node<T> currNode = head;
+		int count = 0;
+		if (null != currNode) {
+			while ((null != currNode.next) || (null != currNode.value)) {
+				currNode = currNode.next;
+				count++;
+				if (null == currNode) {
+					break;
+				}
+			}
+		}
+		count = (count > Integer.MAX_VALUE) ? Integer.MAX_VALUE : count;
+		return count;
+	}
 }
