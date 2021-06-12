@@ -28,12 +28,24 @@ public class LinkedList<T> {
 	 * node's next element is null
 	 */
 	public void show() {
-		Node<T> last = head;
-		while (last.next != null) {
-			System.out.println(last.value);
-			last = last.next;
+		Node<T> currNode = head;
+		while (currNode.next != null) {
+			System.out.println(currNode.value);
+			currNode = currNode.next;
 		}
-		System.out.println(last.value);
+		System.out.println(currNode.value);
+	}
+
+	/**
+	 * Inserts the specified element at the start of the list.
+	 * 
+	 * @param value
+	 */
+	public void addAtStart(T value) {
+		Node<T> newNode = new Node<>();
+		newNode.value = value;
+		newNode.next = head;
+		head = newNode;
 	}
 
 }
