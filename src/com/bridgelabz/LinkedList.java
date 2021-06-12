@@ -91,4 +91,31 @@ public class LinkedList<T> {
 		}
 		prevNode.next = null;
 	}
+
+	/**
+	 * Returns the index of the first occurrence of the specified element in this
+	 * list, or -1 if this list does not contain the element. More formally, returns
+	 * the lowest index {@code i} such that {@code Objects.equals(o, get(i))}, or -1
+	 * if there is no such index.
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public int searchByValue(T value) {
+		Node<T> currNode = head;
+		int index = 0;
+		if (null != currNode) {
+			while ((null != currNode.next) || (null != currNode.value)) {
+				if (currNode.value == value) {
+					break;
+				}
+				currNode = currNode.next;
+				if (null == currNode) {
+					return -1;
+				}
+				index++;
+			}
+		}
+		return index;
+	}
 }
