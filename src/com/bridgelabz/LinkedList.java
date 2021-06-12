@@ -4,7 +4,7 @@ public class LinkedList<T> {
 	Node<T> head;
 
 	/**
-	 * Appends the specified element to the end of this list
+	 * Appends the specified element to the end of this list.
 	 * 
 	 * @param value
 	 */
