@@ -15,11 +15,11 @@ public class LinkedList<T> {
 		if (head == null) {
 			head = newNode;
 		} else {
-			Node<T> last = head;
-			while (last.next != null) {
-				last = last.next;
+			Node<T> currNode = head;
+			while (currNode.next != null) {
+				currNode = currNode.next;
 			}
-			last.next = newNode;
+			currNode.next = newNode;
 		}
 	}
 
@@ -46,6 +46,27 @@ public class LinkedList<T> {
 		newNode.value = value;
 		newNode.next = head;
 		head = newNode;
+	}
+
+	/**
+	 * Inserts the specified element at the specified position in this list
+	 * 
+	 * @param value
+	 * @param index
+	 */
+	public void addAtIndex(T value, int index) {
+		if (index == 0) {
+			addAtStart(value);
+		} else {
+			Node<T> newNode = new Node<>();
+			newNode.value = value;
+			Node<T> nodeAtPreviousIndex = head;
+			for (int i = 0; i < index - 1; i++) {
+				nodeAtPreviousIndex = nodeAtPreviousIndex.next;
+			}
+			newNode.next = nodeAtPreviousIndex.next;
+			nodeAtPreviousIndex.next = newNode;
+		}
 	}
 
 }
