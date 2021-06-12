@@ -9,8 +9,8 @@ public class Runner {
 		System.out.println("Array elements");
 		numberList.show();
 		System.out.println();
-		int searchResult = numberList.searchByValue(90);
-		String result = (searchResult == -1) ? "value not found in the list" : "value found at index " + searchResult;
-		System.out.println(result);
+		int searchResult = numberList.searchByValue(30);
+		numberList.addAtIndex(40, searchResult+1);
+		numberList.show();
 	}
 }
