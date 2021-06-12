@@ -69,4 +69,13 @@ public class LinkedList<T> {
 		}
 	}
 
+	/**
+	 * Removes the first element from this list, if it is present
+	 */
+	public void pop() {
+		if (null != head) {
+			Node<T> newHead = head.next;
+			head = newHead;
+		}
+	}
 }
